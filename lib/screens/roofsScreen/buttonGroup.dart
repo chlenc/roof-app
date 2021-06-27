@@ -16,15 +16,16 @@ class ButtonGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(2),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(9), color: black200),
-        height: 32,
-        child: Expanded(
-          flex: 1,
-          child: new Row(
-              children: items.map((item) => Button(props: item)).toList()),
-        ));
+      padding: EdgeInsets.all(2),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(9),
+        color: black200,
+      ),
+      height: 32,
+      child: new Row(
+        children: items.map((item) => Button(props: item)).toList(),
+      ),
+    );
   }
 }
 

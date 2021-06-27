@@ -1,8 +1,10 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:roof_app/screens/favoritesScreen/favoritesScreen.dart';
+import 'package:roof_app/screens/notificationsScreen/notificationsScreen.dart';
+import 'package:roof_app/screens/roofsScreen/roofsScreen.dart';
+import 'package:roof_app/screens/settingsScreen/settingsScreen.dart';
 
-import '../../theme.dart';
-import 'buttonGroup.dart';
+import '../bottomMenu.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -13,7 +15,13 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  int _selectedView = 0;
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    RoofsScreen(),
+    FavoritesScreen(),
+    NotificationsScreen(),
+    SettingsScreen(),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -21,67 +29,14 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
-  void _onButtonTapped(int index) {
-    setState(() {
-      _selectedView = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: ButtonGroup(items: [
-            ButtonGroupItem(
-              "Карта",
-              () => _onButtonTapped(0),
-              _selectedView == 0,
-            ),
-            ButtonGroupItem(
-              "Список",
-              () => _onButtonTapped(1),
-              _selectedView == 1,
-            ),
-          ])),
-      body: Container(
-        color: black200,
-        child: Center(
-          child: Text(
-            "Тут должна быть карта",
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.location_on_outlined),
-            activeIcon: Icon(Icons.location_on),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark_border),
-            activeIcon: Icon(Icons.bookmark),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_none),
-            activeIcon: Icon(Icons.notifications),
-            label: 'School',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'School',
-          ),
-        ],
+      bottomNavigationBar: BottomMenu(
         currentIndex: _selectedIndex,
-        unselectedItemColor: HexColor.fromHex('#A1A8B1'),
-        selectedItemColor: HexColor.fromHex('#3978F2'),
         onTap: _onItemTapped,
       ),
     );

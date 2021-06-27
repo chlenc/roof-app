@@ -48,6 +48,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
   }
 
+  void handleAllowLocation() {
+    Navigator.pushNamed(context, '/');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +101,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
                     ),
-                    onPressed: _nextOnboardingPage,
+                    onPressed: page == pages.length - 1
+                        ? handleAllowLocation
+                        : _nextOnboardingPage,
                     child: Text(
                       pages[page].bthText,
                       style: TextStyle(

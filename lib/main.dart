@@ -12,9 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Крышер Rooshare',
       theme: theme,
-      // home: OnboardingScreen(),
       home: MainScreen(),
     );
   }
 }
-
