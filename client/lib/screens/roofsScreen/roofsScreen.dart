@@ -1,14 +1,6 @@
-// import 'package:flutter/material.dart';
-//
-// import '../../theme.dart';
-// import '../bottomMenu.dart';
-// import 'buttonGroup.dart';
-//
-
 import 'package:flutter/material.dart';
-
 import '../../theme.dart';
-import 'buttonGroup.dart';
+import 'navButton.dart';
 
 class RoofsScreen extends StatefulWidget {
   const RoofsScreen({Key? key}) : super(key: key);
@@ -46,30 +38,31 @@ class _RoofsScreenState extends State<RoofsScreen> {
           top: 10.0,
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 18),
-            child: ButtonGroup(
-              items: [
-                ButtonGroupItem(
-                  "Карта",
-                  () => _onButtonTapped(0),
-                  _selectedView == 0,
-                ),
-                ButtonGroupItem(
-                  "Список",
-                  () => _onButtonTapped(1),
-                  _selectedView == 1,
-                ),
-              ],
+            child: Container(
+              padding: EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(9),
+                color: black200,
+              ),
+              height: 32,
+              child: new Row(
+                children: [
+                  NavButton(
+                    title: "Карта",
+                    onClick: () => _onButtonTapped(0),
+                    active: _selectedView == 0,
+                  ),
+                  NavButton(
+                    title: "Список",
+                    onClick: () => _onButtonTapped(1),
+                    active: _selectedView == 1,
+                  )
+                ],
+              ),
             ),
           ),
         ),
       ],
-    );
-    return Container(
-      child: Expanded(
-        child: Column(
-          children: [],
-        ),
-      ),
     );
   }
 }
