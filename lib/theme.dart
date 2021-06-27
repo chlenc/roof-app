@@ -8,8 +8,8 @@ var black200 = HexColor.fromHex('#EDF1F5');
 var theme = ThemeData(
   // Define the default brightness and colors.
   primaryColor: HexColor.fromHex('#3978F2'),
-  brightness: Brightness.dark,
-  accentColor: Colors.cyan[600],
+  // brightness: Brightness.dark,
+  accentColor: Colors.white,
   // Define the default font family.
   fontFamily: 'Manrope',
 

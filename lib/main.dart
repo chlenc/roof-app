@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:roof_app/screens/mainScreen/mainScreen.dart';
 import 'package:roof_app/theme.dart';
-import 'screens/onboardingScreen/onboardingScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Крышер Rooshare',
       theme: theme,
-      home: OnboardingScreen(),
+      // home: OnboardingScreen(),
+      home: MainScreen(),
     );
   }
 }

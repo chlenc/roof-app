@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -63,8 +62,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: SvgPicture.asset(
-                      'images/onboarding-' + page.toString() + '.svg',
-                      semanticsLabel: 'Acme Logo'),
+                    'images/onboarding-' + page.toString() + '.svg',
+                    semanticsLabel: 'Acme Logo',
+                  ),
                 ),
               ),
             ),
