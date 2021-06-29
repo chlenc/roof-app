@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'pagination.dart';
 
@@ -48,7 +49,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
   }
 
-  void handleAllowLocation() {
+  Future<void> handleAllowLocation() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt("initScreen", 1);
     Navigator.pushNamed(context, '/');
   }
 
