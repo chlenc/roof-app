@@ -4,6 +4,7 @@ import 'package:roof_app/screens/settingsScreen/section.dart';
 import 'package:roof_app/screens/settingsScreen/sectionDivider.dart';
 import 'package:roof_app/screens/settingsScreen/sectionRow.dart';
 import 'package:roof_app/theme.dart';
+import 'package:roof_app/widgets/screenTitle.dart';
 import 'package:roof_app/widgets/select.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -18,16 +19,7 @@ class SettingsScreen extends StatelessWidget {
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(top: 48, left: 16, right: 16),
-            child: Text(
-              "Настройки",
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontFamily: 'Manrope',
-                fontWeight: FontWeight.w800,
-                fontSize: 32,
-                color: HexColor.fromHex('#273138'),
-              ),
-            ),
+            child: ScreenTitle("Настройки")
           ),
           Section(
             title: "Интерфейс",
