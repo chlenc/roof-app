@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roof_app/screens/roofsScreen/roofsList.dart';
 import '../../theme.dart';
 import 'navButton.dart';
 
@@ -25,11 +26,7 @@ class _RoofsScreenState extends State<RoofsScreen> {
         Container(
           color: Colors.white,
           child: Center(
-            child: Text(
-              "Тут должна быть карта",
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black),
-            ),
+            child: new RoofsList(),
           ),
         ),
         Positioned(
